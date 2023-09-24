@@ -7,9 +7,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    var provider = builder.Configuration.GetValue("provider", "sqlserver").ToLower();
+    switch(provider)
+    {
+        case "sqlserver":
+        {
+            options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer"));
+            break;
+        }
+        case "mysql":
+        {
+            options.UseMySQL(builder.Configuration.GetConnectionString("MySQL"));
+            break;
+        }
+        default:
+        {
+            throw new Exception("Invalid provider");
+        }
+    }
 });
 
+builder.Configuration.AddCommandLine(args);
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 

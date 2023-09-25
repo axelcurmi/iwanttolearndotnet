@@ -1,5 +1,5 @@
 ﻿using CharacterAPI.Models;
-using CharacterAPI.Models.DTO;
+using CharacterAPI.DTOs;
 using CharacterAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 

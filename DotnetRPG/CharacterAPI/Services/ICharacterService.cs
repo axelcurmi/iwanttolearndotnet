@@ -1,13 +1,13 @@
 ﻿using CharacterAPI.Controllers;
 using CharacterAPI.Models;
-using CharacterAPI.Models.DTO;
+using CharacterAPI.DTOs;
 
 namespace CharacterAPI.Services
 {
     public interface ICharacterService
     {
-        Task<List<Character>> GetAllCharacters();
-        Task<Character> GetCharacter(Guid id);
-        Task<Character> AddCharacter(AddCharacterDTO characterDTO);
+        Task<ResponseDTO<List<Character>>> GetAllCharacters();
+        Task<ResponseDTO<Character>> GetCharacter(Guid id);
+        Task<ResponseDTO<Character>> AddCharacter(AddCharacterDTO characterDTO);
     }
 }

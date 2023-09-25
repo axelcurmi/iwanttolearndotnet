@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CharacterAPI.Models;
-using CharacterAPI.Models.DTO;
+using CharacterAPI.DTOs;
 
 namespace CharacterAPI
 {

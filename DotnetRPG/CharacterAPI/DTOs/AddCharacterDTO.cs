@@ -1,4 +1,4 @@
-﻿namespace CharacterAPI.Models.DTO
+﻿namespace CharacterAPI.DTOs
 {
     public class AddCharacterDTO
     {

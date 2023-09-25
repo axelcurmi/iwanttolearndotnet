@@ -20,18 +20,18 @@ namespace CharacterAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Character>>> Get()
+        public async Task<ActionResult<ResponseDTO<List<Character>>>> Get()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetSingle(Guid id) {
+        public async Task<ActionResult<ResponseDTO<Character>>> GetSingle(Guid id) {
             return Ok(await _characterService.GetCharacter(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddCharacter(AddCharacterDTO characterDTO)
+        public async Task<ActionResult<ResponseDTO<Character>>> AddCharacter(AddCharacterDTO characterDTO)
         {
             return Ok(await _characterService.AddCharacter(characterDTO));
         }
